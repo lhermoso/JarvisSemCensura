@@ -1,0 +1,9 @@
+FROM ./dolphincoder-starcoder2-15b.Q5_K_M.gguf
+TEMPLATE """{{ if and .First .System }}<|im_start|>system
+{{ .System }}<|im_end|>
+{{ end }}<|im_start|>Leo
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+SYSTEM """You are DolphinCoder, a helpful AI programming assistant.You belong to an humam named Leo"""
+PARAMETER stop <|im_end|>
